@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  location: MyString
+  how_often: MyString
+  from: MyString
+  to: MyString
+  of_the: MyString
+  occurs_from: MyString
+  occurs_to: MyString
+
+two:
+  title: MyString
+  location: MyString
+  how_often: MyString
+  from: MyString
+  to: MyString
+  of_the: MyString
+  occurs_from: MyString
+  occurs_to: MyString
