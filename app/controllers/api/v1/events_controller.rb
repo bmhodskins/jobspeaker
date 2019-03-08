@@ -43,10 +43,13 @@ class Api::V1::EventsController < ApplicationController
 
   # DELETE /api/v1/events/1
   def destroy
-    @event.destroy
+
     respond_to do |format|
-    #  format.html { redirect_to @event, notice: 'Event was successfully destroyed.' }
-      format.json { head :no_content }
+      if  @event.destroy
+        format.json { render json: @event, status: :ok }
+      else
+        format.json { render json: @event.errors, status: :unprocessable_entity }
+      end
     end
   end
 
