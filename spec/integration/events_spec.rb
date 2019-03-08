@@ -27,8 +27,8 @@ describe 'Events API' do
       }
 
       response '201', 'event created' do
-        let(:event) { { title: 'My standup', location: 'west arch', how_often: 'daily', from_time: '09:00 AM', to_time: '10:00 AM',
-                        of_the_param: 'same day', occurs_from_date: '2019-03-04', occurs_to_date: '2019-12-31'} }
+        let(:event) { { title: 'My standup', location: 'west arch', how_often: 'Daily', from_time: '09:00 AM', to_time: '10:00 AM',
+                        of_the_param: 'Same day', occurs_from_date: '2019-03-04', occurs_to_date: '2019-12-31'} }
         run_test!
       end
 
@@ -66,8 +66,9 @@ describe 'Events API' do
 
                },
                required: [ 'id', 'title']
-       let(:id) { Event.create(title: 'My standup', location: 'west arch', how_often: 'daily', from_time: '09:00 AM', to_time: '10:00 AM',
-                               of_the_param: 'same day', occurs_from_date: '2019-03-04', occurs_to_date: '2019-12-31').id}
+       let(:id) { Event.create(title: 'My standup', location: 'west arch', how_often: 'Daily', from_time: '09:00 AM', to_time: '10:00 AM',
+                               of_the_param: 'Same day', occurs_from_date: '2019-03-04', occurs_to_date: '2019-12-31',
+                               day_of_the_week: [ 'Monday', 'Wednesday', 'Friday']).id}
         run_test!
       end
 
@@ -122,17 +123,17 @@ describe 'Events API' do
 
                },
                required: [ 'id', 'title']
-        let(:id) { Event.create(title: 'My standup', location: 'west arch', how_often: 'daily', from_time: '09:00 AM', to_time: '10:00 AM',
-                                of_the_param: 'same day', occurs_from_date: '2019-03-04', occurs_to_date: '2019-12-31').id}
-        let(:event) { { title: 'My standup - updated', location: 'east arch', how_often: 'daily', from_time: '09:00 AM', to_time: '10:00 AM',
-                        of_the_param: 'same day', occurs_from_date: '2019-03-04', occurs_to_date: '2019-12-31'} }
+        let(:id) { Event.create(title: 'My standup', location: 'west arch', how_often: 'Daily', from_time: '09:00 AM', to_time: '10:00 AM',
+                                of_the_param: 'Same day', occurs_from_date: '2019-03-04', occurs_to_date: '2019-12-31').id}
+        let(:event) { { title: 'My standup - updated', location: 'east arch', how_often: 'Daily', from_time: '09:00 AM', to_time: '10:00 AM',
+                        of_the_param: 'Same day', occurs_from_date: '2019-03-04', occurs_to_date: '2019-12-31'} }
         run_test!
       end
 
       response '404', 'event not found' do
         let(:id) { 'invalid' }
-        let(:event) { { title: 'My standup - updated', location: 'east arch', how_often: 'daily', from_time: '09:00 AM', to_time: '10:00 AM',
-                        of_the_param: 'same day', occurs_from_date: '2019-03-04', occurs_to_date: '2019-12-31'} }
+        let(:event) { { title: 'My standup - updated', location: 'east arch', how_often: 'Daily', from_time: '09:00 AM', to_time: '10:00 AM',
+                        of_the_param: 'Same day', occurs_from_date: '2019-03-04', occurs_to_date: '2019-12-31'} }
         run_test!
       end
 
@@ -163,8 +164,8 @@ describe 'Events API' do
 
                },
                required: [ 'id', 'title']
-        let(:id) { Event.create(title: 'My standup', location: 'west arch', how_often: 'daily', from_time: '09:00 AM', to_time: '10:00 AM',
-                                of_the_param: 'same day', occurs_from_date: '2019-03-04', occurs_to_date: '2019-12-31').id}
+        let(:id) { Event.create(title: 'My standup', location: 'west arch', how_often: 'Daily', from_time: '09:00 AM', to_time: '10:00 AM',
+                                of_the_param: 'Same day', occurs_from_date: '2019-03-04', occurs_to_date: '2019-12-31').id}
         run_test!
       end
 
