@@ -1,4 +1,5 @@
 class Event < ApplicationRecord
+  belongs_to :series
   validates :title, presence: true
 
   validates :how_often, acceptance: { accept: [ 'Daily', 'Weekly', 'Monthly', 'Custom'] }

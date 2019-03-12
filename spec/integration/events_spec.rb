@@ -62,13 +62,14 @@ describe 'Events API' do
                    day_of_the_week: { type: [ :string, :null ]},
                    day_of_the_month: { type: [ :string, :null ]},
                    occurs_from_date: { type: :string},
-                   occurs_to_date: { type: :string}
+                   occurs_to_date: { type: :string},
+                   series_id: { type: :integer }
 
                },
                required: [ 'id', 'title']
        let(:id) { Event.create(title: 'My standup', location: 'west arch', how_often: 'Daily', from_time: '09:00 AM', to_time: '10:00 AM',
                                of_the_param: 'Same day', occurs_from_date: '2019-03-04', occurs_to_date: '2019-12-31',
-                               day_of_the_week: [ 'Monday', 'Wednesday', 'Friday']).id}
+                               day_of_the_week: [ 'Monday', 'Wednesday', 'Friday'], series_id: Series.create( title: "My standup" ).id).id}
         run_test!
       end
 
@@ -124,7 +125,7 @@ describe 'Events API' do
                },
                required: [ 'id', 'title']
         let(:id) { Event.create(title: 'My standup', location: 'west arch', how_often: 'Daily', from_time: '09:00 AM', to_time: '10:00 AM',
-                                of_the_param: 'Same day', occurs_from_date: '2019-03-04', occurs_to_date: '2019-12-31').id}
+                                of_the_param: 'Same day', occurs_from_date: '2019-03-04', occurs_to_date: '2019-12-31', series_id: Series.create( title: "My standup" ).id).id}
         let(:event) { { title: 'My standup - updated', location: 'east arch', how_often: 'Daily', from_time: '09:00 AM', to_time: '10:00 AM',
                         of_the_param: 'Same day', occurs_from_date: '2019-03-04', occurs_to_date: '2019-12-31'} }
         run_test!
@@ -165,7 +166,7 @@ describe 'Events API' do
                },
                required: [ 'id', 'title']
         let(:id) { Event.create(title: 'My standup', location: 'west arch', how_often: 'Daily', from_time: '09:00 AM', to_time: '10:00 AM',
-                                of_the_param: 'Same day', occurs_from_date: '2019-03-04', occurs_to_date: '2019-12-31').id}
+                                of_the_param: 'Same day', occurs_from_date: '2019-03-04', occurs_to_date: '2019-12-31', series_id: Series.create( title: "My standup" ).id).id}
         run_test!
       end
 

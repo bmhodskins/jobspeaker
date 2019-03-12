@@ -3,7 +3,7 @@ class Api::V1::EventsController < ApplicationController
 
   # GET /api/v1/events
   def index
-    @aevents = Event.all
+    @events = Event.all
     render json: @events
   end
 
@@ -19,7 +19,8 @@ class Api::V1::EventsController < ApplicationController
 
   # POST /api/v1/events
   def create
-    @event = Event.new(event_params)
+    @series = Series.new( { title: event_params[:title] } )
+    @event = @series.events.new(event_params)
 
     respond_to do |format|
       if @event.save
@@ -65,6 +66,6 @@ class Api::V1::EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.fetch(:event).permit(:title, :location, :how_often, :day_of_the_week, :day_of_the_month, :from_time, :to_time, :of_the_param, :occurs_from_date, :occurs_to_date)
+      params.fetch(:event).permit(:title, :location, :how_often, :day_of_the_week, :day_of_the_month, :from_time, :to_time, :of_the_param, :occurs_from_date, :occurs_to_date, :series_id)
     end
 end
