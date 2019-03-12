@@ -1,0 +1,341 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API V1",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/v1/events": {
+      "post": {
+        "summary": "Creates a pet",
+        "tags": [
+          "Events"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "event",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "location": {
+                  "type": "string"
+                },
+                "how_often": {
+                  "type": "string"
+                },
+                "from_time": {
+                  "type": "string"
+                },
+                "to_time": {
+                  "type": "string"
+                },
+                "of_the_param": {
+                  "type": "string"
+                },
+                "day_of_the_week": {
+                  "type": "string"
+                },
+                "day_of_the_month": {
+                  "type": "string"
+                },
+                "occurs_from_date": {
+                  "type": "string"
+                },
+                "occurs_to_date": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "title"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "event created"
+          },
+          "422": {
+            "description": "invalid request"
+          }
+        }
+      }
+    },
+    "/api/v1/events/{id}": {
+      "get": {
+        "summary": "retrieves an event",
+        "tags": [
+          "Events"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "name found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "location": {
+                  "type": "string"
+                },
+                "how_often": {
+                  "type": "string"
+                },
+                "from_time": {
+                  "type": "string"
+                },
+                "to_time": {
+                  "type": "string"
+                },
+                "of_the_param": {
+                  "type": "string"
+                },
+                "day_of_the_week": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "day_of_the_month": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "occurs_from_date": {
+                  "type": "string"
+                },
+                "occurs_to_date": {
+                  "type": "string"
+                },
+                "series_id": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "id",
+                "title"
+              ]
+            }
+          },
+          "404": {
+            "description": "event not found"
+          }
+        }
+      },
+      "put": {
+        "summary": "updates an event",
+        "tags": [
+          "Events"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "event",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "location": {
+                  "type": "string"
+                },
+                "how_often": {
+                  "type": "string"
+                },
+                "from_time": {
+                  "type": "string"
+                },
+                "to_time": {
+                  "type": "string"
+                },
+                "of_the_param": {
+                  "type": "string"
+                },
+                "day_of_the_week": {
+                  "type": "string"
+                },
+                "day_of_the_month": {
+                  "type": "string"
+                },
+                "occurs_from_date": {
+                  "type": "string"
+                },
+                "occurs_to_date": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "title"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "updated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "location": {
+                  "type": "string"
+                },
+                "how_often": {
+                  "type": "string"
+                },
+                "from_time": {
+                  "type": "string"
+                },
+                "to_time": {
+                  "type": "string"
+                },
+                "of_the_param": {
+                  "type": "string"
+                },
+                "day_of_the_week": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "day_of_the_month": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "occurs_from_date": {
+                  "type": "string"
+                },
+                "occurs_to_date": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title"
+              ]
+            }
+          },
+          "404": {
+            "description": "event not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "deletes an event",
+        "tags": [
+          "Events"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "name found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "location": {
+                  "type": "string"
+                },
+                "how_often": {
+                  "type": "string"
+                },
+                "from_time": {
+                  "type": "string"
+                },
+                "to_time": {
+                  "type": "string"
+                },
+                "of_the_param": {
+                  "type": "string"
+                },
+                "day_of_the_week": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "day_of_the_month": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "occurs_from_date": {
+                  "type": "string"
+                },
+                "occurs_to_date": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title"
+              ]
+            }
+          },
+          "404": {
+            "description": "event not found"
+          }
+        }
+      }
+    }
+  }
+}
