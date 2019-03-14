@@ -12,24 +12,29 @@
 
 ActiveRecord::Schema.define(version: 2019_03_12_155121) do
 
-  create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.string "location"
     t.string "how_often"
     t.string "from_time"
     t.string "to_time"
-    t.string "day_of_the_week"
-    t.string "day_of_the_month"
-    t.string "of_the_param"
-    t.string "occurs_from_date"
-    t.string "occurs_to_date"
+    t.string "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "series_id"
   end
 
-  create_table "series", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "series", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
+    t.string "location"
+    t.string "how_often"
+    t.string "from_time"
+    t.string "to_time"
+    t.string "day_of_the_week", default: "--- []\n"
+    t.string "day_of_the_month"
+    t.string "of_the_param"
+    t.string "occurs_from_date"
+    t.string "occurs_to_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

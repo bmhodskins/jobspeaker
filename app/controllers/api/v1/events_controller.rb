@@ -19,7 +19,7 @@ class Api::V1::EventsController < ApplicationController
 
   # POST /api/v1/events
   def create
-    @series = Series.new( { title: event_params[:title] } )
+    @series = Series.new( { title: event_params[:title]} )
     @event = @series.events.new(event_params)
 
     respond_to do |format|
@@ -66,6 +66,6 @@ class Api::V1::EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.fetch(:event).permit(:title, :location, :how_often, :day_of_the_week, :day_of_the_month, :from_time, :to_time, :of_the_param, :occurs_from_date, :occurs_to_date, :series_id)
+      params.require(:event).permit(:title, :location, :from_time, :to_time, :date, :series_id)
     end
 end

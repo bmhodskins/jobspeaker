@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :events, path: 'api/v1/events', module: 'api/v1', defaults: {format: :json}
+  resources :series, path: 'api/v1/series', module: 'api/v1', defaults: {format: :json}
 end
